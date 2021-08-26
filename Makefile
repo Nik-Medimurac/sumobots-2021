@@ -7,10 +7,10 @@
 # ------------------------------------------------------------------------------
 
 # Name of the .c file with your main() function
-MAIN 		:= blink.c
+MAIN 		:= main.c
 
 # Other .c files that are used in the project
-INCLUDES	:=
+INCLUDES	:= line_sensor.c
 
 # Project Directories
 SRC			:= src
@@ -32,7 +32,7 @@ PORT	  	:= /dev/ttyUSB0
 DEVICE     	:= atmega328p
 PROGRAMMER 	:= arduino
 CLOCK      	:= 16000000UL
-BAUDRATE   	:= 57600
+BAUDRATE   	:= 115200
 FUSES 	   	:= -U lfuse:w:0xd0:m -U hfuse:w:0xd9:m -U efuse:w:0xff:m
 
 # ------------------------------------------------------------------------------
