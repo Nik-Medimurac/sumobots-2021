@@ -10,7 +10,7 @@
 MAIN 		:= main.c
 
 # Other .c files that are used in the project
-INCLUDES	:= line_sensor.c
+INCLUDES	:= line_sensor.c motor.c
 
 # Project Directories
 SRC			:= src
