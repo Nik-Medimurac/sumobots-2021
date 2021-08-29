@@ -10,31 +10,29 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 
-#include <avr/io.h>
-
-#define LEFT_MOTOR_PIN  (0x1 << PORTD5) // Pin D5
-#define RIGHT_MOTOR_PIN (0x1 << PORTD6) // Pin D6
-
 /*
  * Initialises the motor controller module.
- * This sets up the LEFT_MOTOR_PIN and RIGHT_MOTOR_PIN as pwm outputs.
- */
+ * This configures the motor control pins as pwm outputs, with the motors
+ * initially turned off.
+ * */
 void motor_init(void);
 
 /*
  * Sets the power of the left motor.
- * Power value is between 0 - 255, where 0 is off and 255 is max power.
- */
-static inline void  motor_left_power(unsigned char power) {
-    OCR0A = power;
-}
+ * Power value is between -127 to 127, where:
+ *   -127 : Full power reverse
+ *      0 : Off
+ *    127 : Full power forward
+ * */
+void motor_left_power(char power);
 
 /*
  * Sets the power of the right motor.
- * Power value is between 0 - 255, where 0 is off and 255 is max power.
- */
-static inline void  motor_right_power(unsigned char power) {
-    OCR0B = power;
-}
+ * Power value is between -127 to 127, where:
+ *   -127 : Full power reverse
+ *      0 : Off
+ *    127 : Full power forward
+ * */
+void motor_right_power(char power);
 
 #endif /* MOTOR_H */
